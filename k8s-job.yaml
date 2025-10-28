@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: batch-job-d
+spec:
+  template:
+    spec:
+      containers:
+      - name: batch-job-d
+        image: ravindra806/batch-job-d:latest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+      restartPolicy: OnFailure
+  backoffLimit: 2
